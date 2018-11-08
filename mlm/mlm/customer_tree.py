@@ -1,26 +1,26 @@
 
-# from __future__ import unicode_literals
-
-
-# import frappe
-# from frappe.model.document import Document
-# from frappe.utils import flt
-# from frappe.utils.nestedset import NestedSet, update_nsm
 from __future__ import unicode_literals
+
+
 import frappe
-import urllib
-import copy
-from frappe import _
-import json
-import math
-from frappe.utils import nowdate, cint, cstr
-from frappe.utils.nestedset import NestedSet
-from frappe.website.website_generator import WebsiteGenerator
-from frappe.website.render import clear_cache
-from frappe.website.doctype.website_slideshow.website_slideshow import get_slideshow
-from erpnext.shopping_cart.product_info import set_product_info_for_website
-from erpnext.utilities.product import get_qty_in_stock
-from frappe.utils.html_utils import clean_html
+from frappe.model.document import Document
+from frappe.utils import flt
+from frappe.utils.nestedset import NestedSet, update_nsm
+# from __future__ import unicode_literals
+# import frappe
+# import urllib
+# import copy
+# from frappe import _
+# import json
+# import math
+# from frappe.utils import nowdate, cint, cstr
+# from frappe.utils.nestedset import NestedSet
+# from frappe.website.website_generator import WebsiteGenerator
+# from frappe.website.render import clear_cache
+# from frappe.website.doctype.website_slideshow.website_slideshow import get_slideshow
+# from erpnext.shopping_cart.product_info import set_product_info_for_website
+# from erpnext.utilities.product import get_qty_in_stock
+# from frappe.utils.html_utils import clean_html
 
 
 @frappe.whitelist()
