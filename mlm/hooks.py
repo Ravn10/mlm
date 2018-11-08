@@ -88,6 +88,11 @@ doctype_tree_js = {
 # 		"on_trash": "method"
 #	}
 # }
+doc_events = {
+	"Customer": {
+		"validate": "mlm.mlm.customer_tree.validate"
+	}
+}
 
 # Scheduled Tasks
 # ---------------
