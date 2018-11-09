@@ -91,6 +91,9 @@ doctype_tree_js = {
 doc_events = {
 	"Customer": {
 		"validate": "mlm.mlm.customer_tree.validate"
+	},
+	"Sales Invoice": {
+		"on_update": "mlm.mlm.customer_tree.validate"
 	}
 }
 
@@ -104,9 +107,9 @@ doc_events = {
 # 	"daily": [
 # 		"mlm.tasks.daily"
 # 	],
-# 	"hourly": [
-# 		"mlm.tasks.hourly"
-# 	],
+	# "hourly": [
+	# 	"mlm.mlm.customer_tree.hourly"
+	# ],
 # 	"weekly": [
 # 		"mlm.tasks.weekly"
 # 	]
