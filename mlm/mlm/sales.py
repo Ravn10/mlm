@@ -102,5 +102,9 @@ def validate():
 		
 		adoc.flags.ignore_permissions = True
 		adoc.submit()
-		
+
+
+		frappe.db.set_value("Sales Invoice", x.name, "mlm_jv", 1)
+		frappe.db.set_value("Sales Invoice", x.name, "jv_no", adoc.name)
+
 	return row
