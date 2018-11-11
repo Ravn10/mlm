@@ -100,8 +100,8 @@ def validate():
 		'user_remark': 'Referal bonus.'
 		}).insert(ignore_permissions=True)
 		
-		adoc.flags.ignore_permissions = True
-		adoc.submit()
+		# adoc.flags.ignore_permissions = True
+		# adoc.submit()
 
 
 		# si = frappe.get_doc("Sales Invoice", x.name)
@@ -109,4 +109,4 @@ def validate():
 		# si.mlm_jv = 1
 		# si.flags.ignore_permissions = True
 		# si.save(ignore_permissions=True)
-	return "adoc"
+	return adoc
