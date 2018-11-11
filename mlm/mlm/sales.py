@@ -69,6 +69,14 @@ def validate():
 						'credit_in_account_currency': 0.05* flt(x.total_distribution_amt),
 						'debit_in_account_currency': 0
 				})
+
+		row.append({
+				'account': frappe.db.get_single_value("MLM Settings", "referral_bonus_expense_account"),
+				# 'party_type': 'Customer',
+				# 'party': y,
+				'credit_in_account_currency': 0,
+				'debit_in_account_currency': flt(x.total_distribution_amt)
+		})		
 		
 
 
