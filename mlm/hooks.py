@@ -91,10 +91,10 @@ doctype_tree_js = {
 doc_events = {
 	"Customer": {
 		"validate": "mlm.mlm.customer_tree.validate"
+	},
+	"Sales Invoice": {
+		"on_update": "mlm.mlm.customer_tree.entry_journal"
 	}
-	# "Sales Invoice": {
-	# 	"on_update": "mlm.mlm.customer_tree.validate"
-	# }
 }
 
 # Scheduled Tasks
