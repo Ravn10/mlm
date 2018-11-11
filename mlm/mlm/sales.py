@@ -41,64 +41,64 @@ def validate():
 		arr = x.route.split("/")
 		arr = arr[::-1]
 		
-		cnt30 = 0
-		cnt10 = 0
-		cnt05 = 0
+		# cnt30 = 0
+		# cnt10 = 0
+		# cnt05 = 0
 		
-		row = []
-		for y in arr:
+		# row = []
+		# for y in arr:
 
 
-			if y == x.customer:
-				row.append({
-						'account': frappe.db.get_single_value("MLM Settings", "debtors_account"),
-						'party_type': 'Customer',
-						'party': y,
-						'credit_in_account_currency': 0.3* flt(x.total_distribution_amt),
-						'debit_in_account_currency': 0
-				})
-				cnt30+=1
-			elif arr.index(y) > 0 and arr.index(y) < 8:
-				row.append({
-						'account': frappe.db.get_single_value("MLM Settings", "debtors_account"),
-						'party_type': 'Customer',
-						'party': y,
-						'credit_in_account_currency': 0.1* flt(x.total_distribution_amt),
-						'debit_in_account_currency': 0
-				})
-				cnt10+=1
+		# 	if y == x.customer:
+		# 		row.append({
+		# 				'account': frappe.db.get_single_value("MLM Settings", "debtors_account"),
+		# 				'party_type': 'Customer',
+		# 				'party': y,
+		# 				'credit_in_account_currency': 0.3* flt(x.total_distribution_amt),
+		# 				'debit_in_account_currency': 0
+		# 		})
+		# 		cnt30+=1
+		# 	elif arr.index(y) > 0 and arr.index(y) < 8:
+		# 		row.append({
+		# 				'account': frappe.db.get_single_value("MLM Settings", "debtors_account"),
+		# 				'party_type': 'Customer',
+		# 				'party': y,
+		# 				'credit_in_account_currency': 0.1* flt(x.total_distribution_amt),
+		# 				'debit_in_account_currency': 0
+		# 		})
+		# 		cnt10+=1
 
-			elif arr.index(y) > 7 and arr.index(y) < 10:
-				row.append({
-						'account': frappe.db.get_single_value("MLM Settings", "debtors_account"),
-						'party_type': 'Customer',
-						'party': y,
-						'credit_in_account_currency': 0.05* flt(x.total_distribution_amt),
-						'debit_in_account_currency': 0
-				})
-				cnt05+=1
+		# 	elif arr.index(y) > 7 and arr.index(y) < 10:
+		# 		row.append({
+		# 				'account': frappe.db.get_single_value("MLM Settings", "debtors_account"),
+		# 				'party_type': 'Customer',
+		# 				'party': y,
+		# 				'credit_in_account_currency': 0.05* flt(x.total_distribution_amt),
+		# 				'debit_in_account_currency': 0
+		# 		})
+		# 		cnt05+=1
 
-		count = flt(0.3*cnt30)+flt(0.1*cnt10)+flt(0.05*cnt05)	
-		count = count * flt(x.total_distribution_amt)
-		row.append({
-				'account': frappe.db.get_single_value("MLM Settings", "referral_bonus_expense_account"),
-				# 'party_type': 'Customer',
-				# 'party': y,
-				'credit_in_account_currency': 0,
-				'debit_in_account_currency': flt(count)
-		})		
-		
-
-
-		adoc = frappe.get_doc({
-		'doctype': 'Journal Entry',
-		'is_ewallet_entry': 1,
-		'type': 'Joining Bonus',
-		'posting_date': nowdate(),
-		'voucher_type': 'Journal Entry',
-		'accounts': row,
-		'user_remark': 'Referal bonus.'
-		}).insert(ignore_permissions=True)
+		# count = flt(0.3*cnt30)+flt(0.1*cnt10)+flt(0.05*cnt05)	
+		# count = count * flt(x.total_distribution_amt)
+		# row.append({
+		# 		'account': frappe.db.get_single_value("MLM Settings", "referral_bonus_expense_account"),
+		# 		# 'party_type': 'Customer',
+		# 		# 'party': y,
+		# 		'credit_in_account_currency': 0,
+		# 		'debit_in_account_currency': flt(count)
+		# })		
 		
 
-	return sales_invoices
+
+		# adoc = frappe.get_doc({
+		# 'doctype': 'Journal Entry',
+		# 'is_ewallet_entry': 1,
+		# 'type': 'Joining Bonus',
+		# 'posting_date': nowdate(),
+		# 'voucher_type': 'Journal Entry',
+		# 'accounts': row,
+		# 'user_remark': 'Referal bonus.'
+		# }).insert(ignore_permissions=True)
+		
+
+	return arr
