@@ -63,13 +63,13 @@ def validate(sales_invoices, method):
 				})
 	
 
-	joiningjv = frappe.get_doc({
-	'doctype': 'Journal Entry',
-	'is_ewallet_entry': 1,
-	'type': 'Joining Bonus',
-	'posting_date': nowdate(),
-	'voucher_type': 'Journal Entry',
-	'accounts': row,
-	'user_remark': 'Referal bonus.'
-	}).insert(ignore_permissions=True)
-	
+		joiningjv = frappe.get_doc({
+		'doctype': 'Journal Entry',
+		'is_ewallet_entry': 1,
+		'type': 'Joining Bonus',
+		'posting_date': nowdate(),
+		'voucher_type': 'Journal Entry',
+		'accounts': row,
+		'user_remark': 'Referal bonus.'
+		}).insert(ignore_permissions=True)
+		
