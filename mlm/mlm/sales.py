@@ -13,6 +13,7 @@ from frappe.utils.nestedset import NestedSet, update_nsm
 # from frappe import _
 # import json
 # import math
+from frappe import _, msgprint, scrub
 from frappe.utils import nowdate, cint, cstr
 # from frappe.utils.nestedset import NestedSet
 # from frappe.website.website_generator import WebsiteGenerator
@@ -29,7 +30,7 @@ def validate(sales_invoice, method):
 						filters={"status": "Paid", "posting_date": nowdate()},
 						fields=["name", "route", "total_distribution_amt"])
 
-	frappe.msg_print("Vicky")
+	frappe.msgprint("Vicky")
 	# for x in sales_invoices:
 	# 	arr = x.route.split("/")
 	# 	arr = arr[::-1]
