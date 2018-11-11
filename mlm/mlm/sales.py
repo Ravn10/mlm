@@ -79,6 +79,7 @@ def validate():
 				cnt05+=1
 
 		count = flt(0.3*cnt30)+flt(0.1*cnt10)+flt(0.05*cnt05)	
+		count = count * flt(x.total_distribution_amt)
 		row.append({
 				'account': frappe.db.get_single_value("MLM Settings", "referral_bonus_expense_account"),
 				# 'party_type': 'Customer',
