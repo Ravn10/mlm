@@ -93,7 +93,7 @@ doc_events = {
 		"validate": "mlm.mlm.customer_tree.validate"
 	},
 	"Sales Invoice": {
-		"on_update": "mlm.mlm.customer_tree.entry_journal"
+		"validate": "mlm.mlm.sales.validate"
 	}
 }
 
