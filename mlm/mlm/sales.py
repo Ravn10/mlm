@@ -27,7 +27,7 @@ from frappe.utils import nowdate, cint, cstr
 def validate(sales_invoices, method):
 	sales_invoices = frappe.db.get_list("Sales Invoice", 
 						filters={"status": "Paid", "posting_date": nowdate()},
-						fields=["name", "route", "total_distribution_amount"])
+						fields=["name", "route", "total_distribution_amt"])
 
 	for x in sales_invoices:
 		arr = x.route.split("/")
@@ -40,7 +40,7 @@ def validate(sales_invoices, method):
 						'account': frappe.db.get_single_value("MLM Settings", "debtors_account"),
 						'party_type': 'Customer',
 						'party': customer.name,
-						'credit_in_account_currency': 0.3* flt(x.total_distribution_amount),
+						'credit_in_account_currency': 0.3* flt(x.total_distribution_amt),
 						'debit_in_account_currency': 0
 				})
 
@@ -49,7 +49,7 @@ def validate(sales_invoices, method):
 						'account': frappe.db.get_single_value("MLM Settings", "debtors_account"),
 						'party_type': 'Customer',
 						'party': customer.name,
-						'credit_in_account_currency': 0.1* flt(x.total_distribution_amount),
+						'credit_in_account_currency': 0.1* flt(x.total_distribution_amt),
 						'debit_in_account_currency': 0
 				})
 
@@ -58,7 +58,7 @@ def validate(sales_invoices, method):
 						'account': frappe.db.get_single_value("MLM Settings", "debtors_account"),
 						'party_type': 'Customer',
 						'party': customer.name,
-						'credit_in_account_currency': 0.05* flt(x.total_distribution_amount),
+						'credit_in_account_currency': 0.05* flt(x.total_distribution_amt),
 						'debit_in_account_currency': 0
 				})
 	
