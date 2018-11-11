@@ -76,4 +76,4 @@ def validate():
 	# 	}).insert(ignore_permissions=True)
 		
 
-	return sales_invoices
+	return "sales_invoices"
