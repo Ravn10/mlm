@@ -13,7 +13,7 @@ from frappe.utils.nestedset import NestedSet, update_nsm
 # from frappe import _
 # import json
 # import math
-# from frappe.utils import nowdate, cint, cstr
+from frappe.utils import nowdate, cint, cstr
 # from frappe.utils.nestedset import NestedSet
 # from frappe.website.website_generator import WebsiteGenerator
 # from frappe.website.render import clear_cache
