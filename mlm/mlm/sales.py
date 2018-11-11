@@ -109,4 +109,4 @@ def validate():
 		# si.mlm_jv = 1
 		# si.flags.ignore_permissions = True
 		# si.save(ignore_permissions=True)
-	return adoc
+	return "adoc"
