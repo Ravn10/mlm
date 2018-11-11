@@ -29,7 +29,7 @@ def validate():
 	# sales_invoices = frappe.db.get_list("Sales Invoice") 
 						# filters={"status": "Paid", "posting_date": nowdate()})
 						# fields=["name", "route", "total_distribution_amt"])
-	sales_invoices = frappe.db.get_list("Sale Invoice",
+	sales_invoices = frappe.db.get_list("Sales Invoice",
 				 filters = {"status": "Paid", "posting_date": nowdate()},
 				 fields = ["name", "route", "total_distribution_amt"],
 				 ignore_permissions=True)
