@@ -103,4 +103,10 @@ def validate():
 		adoc.flags.ignore_permissions = True
 		adoc.submit()
 
+
+		si = frappe.get_doc("Sales Invoice", x.name)
+		si.jv_no = adoc.name
+		si.mlm_jv = 1
+		si.flags.ignore_permissions = True
+		si.save(ignore_permissions=True)
 	return adoc
