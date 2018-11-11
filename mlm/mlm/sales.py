@@ -63,7 +63,7 @@ def validate(sales_invoice, method):
 						'debit_in_account_currency': 0
 				})
 	
-	frappe.msgprint(row)
+		frappe.msgprint(row)
 
 	# 	joiningjv = frappe.get_doc({
 	# 	'doctype': 'Journal Entry',
