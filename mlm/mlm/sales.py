@@ -100,8 +100,7 @@ def validate():
 		'user_remark': 'Referal bonus.'
 		}).insert(ignore_permissions=True)
 		
-		adoc.flags.ignore_permissions = True
-		adoc.submit()
+		# adoc.submit()
 
 
 		si = frappe.get_doc("Sales Invoice", x.name)
