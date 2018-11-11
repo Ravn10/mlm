@@ -62,9 +62,10 @@ def validate(sales_invoice, method):
 						'credit_in_account_currency': 0.05* flt(x.total_distribution_amt),
 						'debit_in_account_currency': 0
 				})
-	
+		
 
-		frappe.get_doc({
+
+		adoc = frappe.get_doc({
 		'doctype': 'Journal Entry',
 		'is_ewallet_entry': 1,
 		'type': 'Joining Bonus',
@@ -74,3 +75,5 @@ def validate(sales_invoice, method):
 		'user_remark': 'Referal bonus.'
 		}).insert(ignore_permissions=True)
 		
+
+	return sales_invoices
