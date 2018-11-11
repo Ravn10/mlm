@@ -100,23 +100,23 @@ doc_events = {
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"mlm.tasks.all"
-# 	],
-# 	"daily": [
-# 		"mlm.tasks.daily"
-# 	],
+scheduler_events = {
+	"all": [
+		"mlm.mlm.sales.validate"
+	]
+	# "daily": [
+	# 	"mlm.tasks.daily"
+	# ],
 	# "hourly": [
 	# 	"mlm.mlm.customer_tree.hourly"
 	# ],
-# 	"weekly": [
-# 		"mlm.tasks.weekly"
-# 	]
-# 	"monthly": [
-# 		"mlm.tasks.monthly"
-# 	]
-# }
+	# "weekly": [
+	# 	"mlm.tasks.weekly"
+	# ]
+	# "monthly": [
+	# 	"mlm.tasks.monthly"
+	# ]
+}
 
 # Testing
 # -------
