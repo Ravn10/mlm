@@ -40,9 +40,15 @@ def validate():
 	for x in sales_invoices:
 		arr = x.route.split("/")
 		arr = arr[::-1]
-
+		
+		cnt30 = 0
+		cnt10 = 0
+		cnt05 = 0
+		
 		row = []
 		for y in arr:
+
+
 			if y == x.customer:
 				row.append({
 						'account': frappe.db.get_single_value("MLM Settings", "debtors_account"),
@@ -51,7 +57,7 @@ def validate():
 						'credit_in_account_currency': 0.3* flt(x.total_distribution_amt),
 						'debit_in_account_currency': 0
 				})
-
+				cnt30+=1
 			elif arr.index(y) > 0 and arr.index(y) < 8:
 				row.append({
 						'account': frappe.db.get_single_value("MLM Settings", "debtors_account"),
@@ -60,6 +66,7 @@ def validate():
 						'credit_in_account_currency': 0.1* flt(x.total_distribution_amt),
 						'debit_in_account_currency': 0
 				})
+				cnt10+=1
 
 			elif arr.index(y) > 7 and arr.index(y) < 10:
 				row.append({
@@ -69,13 +76,15 @@ def validate():
 						'credit_in_account_currency': 0.05* flt(x.total_distribution_amt),
 						'debit_in_account_currency': 0
 				})
+				cnt05+=1
 
+		count = flt(0.3*cnt30)+flt(0.1*cnt10)+flt(0.05*cnt05)	
 		row.append({
 				'account': frappe.db.get_single_value("MLM Settings", "referral_bonus_expense_account"),
 				# 'party_type': 'Customer',
 				# 'party': y,
 				'credit_in_account_currency': 0,
-				'debit_in_account_currency': flt(x.total_distribution_amt)
+				'debit_in_account_currency': flt(count)
 		})		
 		
 
