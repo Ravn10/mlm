@@ -49,7 +49,7 @@ def validate():
 		for y in arr:
 
 
-			if y == x.customer:
+			if arr.index(y) == 0:
 				row.append({
 						'account': frappe.db.get_single_value("MLM Settings", "debtors_account"),
 						'party_type': 'Customer',
