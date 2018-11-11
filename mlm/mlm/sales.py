@@ -26,9 +26,14 @@ from frappe.utils import nowdate, cint, cstr
 
 @frappe.whitelist()
 def validate():
-	sales_invoices = frappe.db.get_list("Sales Invoice", 
-						filters={"status": "Paid", "posting_date": nowdate()})
+	# sales_invoices = frappe.db.get_list("Sales Invoice") 
+						# filters={"status": "Paid", "posting_date": nowdate()})
 						# fields=["name", "route", "total_distribution_amt"])
+	sales_invoices = frappe.db.get_list("Sale Invoice",
+				 filters = {"status": "Paid", "posting_date": nowdate()},
+				 fields = ["name", "route", "total_distribution_amt"],
+				 ignore_permissions=True)
+					
 
 	# for x in sales_invoices:
 	# 	arr = x.route.split("/")
